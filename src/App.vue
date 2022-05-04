@@ -11,7 +11,7 @@
     <router-view />
     <!-- 안내창 -->
     <transition name="fade">
-    <Toast-box :message="toastMessage" v-if="toastShow"/>
+      <ToastBox :message="toastMessage" v-if="toastShow"/>
     </transition>
   </div>
 
