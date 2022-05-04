@@ -9,6 +9,10 @@
     </nav>
 
     <router-view />
+    <!-- 안내창 -->
+    <transition name="fade">
+    <Toast-box :message="toastMessage" v-if="toastShow"/>
+    </transition>
   </div>
 
 
@@ -16,7 +20,9 @@
 
 <script>
   import {useToast} from '@/composables/toast.js'
+import ToastBox from './components/ToastBox.vue';
   export default {
+  components: { ToastBox },
     setup() {
       const {
         toastMessage,
@@ -36,4 +42,17 @@
 
 <style>
   #app {}
+
+  .fade-enter-active,
+  .fade-leave-active{
+    transition:opactiy 0.5s;
+  } 
+  .fade-enter-from,
+  .fade-leave-to{
+    opacity: 0;
+  }
+  .fade-enter-to,
+  .fade-leave-from{
+    opacity: 1;
+  }
 </style>
